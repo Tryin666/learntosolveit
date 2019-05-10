@@ -3,27 +3,20 @@
  * each string of one or more blanks by a single blank.
  *
  * */
-
 #include<stdio.h>
 
-#define NONBLANK '-'
+/* Replcaing blank or more with one */
 
-int main(void)
+main() 
 {
-	int c, lastc;
-
-	lastc = NONBLANK;
-
-	while((c = getchar()) != EOF)
-	{
-		if(c == ' ')
-		{
-			if(lastc != ' ')
-				putchar(c);
-		}
-		else
-			putchar(c);
-		lastc=c;
-	}
-	return 0;
-}
+    int c,lastc;
+    lastc = c - 1; /* or lastc = --c */ 
+    while((c = getchar()) != EOF){
+        if (c != ' ')
+            putchar(c);
+        if (c == ' ')
+            if (lastc != ' ')
+                putchar(c);
+        lastc = c;
+    }
+}            
